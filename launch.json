@@ -1,0 +1,24 @@
+{
+  "kind": "custom_token",
+  "token": {
+    "contract": "SoothToken",
+    "name": "Sooth Protocol",
+    "symbol": "SOOTH",
+    "decimals": 18,
+    "constructorArgs": [],
+    "totalSupply": "1000000000000000000000000000"
+  },
+  "contracts": [],
+  "pool": {
+    "pairedCurrency": "0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7",
+    "fee": 12500,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "economics": {
+    "poolBps": 8000,
+    "initialMarketCapWei": "2500000000000000000000",
+    "remainderTo": "0xd6fac924dcda60610764cc645dbd3939fc18e1a3"
+  },
+  "notes": "SoothToken (src/SoothToken.sol) is a fixed-supply ERC-20 built on the vendored OpenZeppelin Contracts v5.4.0 implementation. Its constructor takes no arguments and mints the whole supply of 1,000,000,000 SOOTH (1000000000000000000000000000 minor units, 18 decimals) once to msg.sender, which in the launch flow is the factory. There is no owner, minter, pause, blacklist, freeze, tax, burn-on-transfer, upgrade or initialization function, and no external calls, so every launch flow (the swarm share to the MerkleDistributor, the single-sided seed through the PoolManager, the remainder to economics.remainderTo, and trader swaps) moves exactly the amount requested. Supply cannot grow after deployment. The launch deploys no application contracts. The pool pairs SOOTH with IMD at the chain's 1.25% fee and tick spacing 60; pool.initialPrice is provenance only, the deployer derives the opening price from economics.initialMarketCapWei and totalSupply."
+}
